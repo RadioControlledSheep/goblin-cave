@@ -85,6 +85,15 @@ def choose_class(name):
 
 
 def choose_profession(name):
+    terminal_width = shutil.get_terminal_size().columns
+    clearscreen()
+    profession_text = []
+    "Scholar - Dusty shelves and musty tomes are your dear companions, sunlight not so much."
+    "Guard - Standing about and looking menacing is a skill okay."
+    "Crafter - General scavenger bit of herbology, general jack of all trades."
+    "Hunter - Silently stalking though the wilderness tracking their prey being it animal or man."
+    "Healer - When people forget that the pointy end goes in the enemy you are around to patch thing up."
+
     return "none"
 
 
