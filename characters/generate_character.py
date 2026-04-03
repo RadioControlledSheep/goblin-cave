@@ -3,7 +3,7 @@ import shutil
 import textwrap
 import time
 
-from characters.classes_professions import PlayerClass
+from characters.classes_professions import PlayerClass, Profession
 from game_logic.clearscreen import clearscreen
 
 
@@ -80,8 +80,8 @@ def choose_class(name):
     )
     if response.capitalize() == "Y":
         return chosen_class
-
-    return choose_class(name)
+    else:
+        return choose_class(name)
 
 
 def choose_profession(name):
@@ -94,7 +94,27 @@ def choose_profession(name):
     "Hunter - Silently stalking though the wilderness tracking their prey being it animal or man."
     "Healer - When people forget that the pointy end goes in the enemy you are around to patch thing up."
 
-    return "none"
+    prof_choice = input("Enter choice (1-5): ")
+    if prof_choice == "1":
+        chosen_prof = Profession.SCHOLAR
+    elif prof_choice == "2":
+        chosen_prof = Profession.GUARD
+    elif prof_choice == "3":
+        chosen_prof = Profession.CRAFTER
+    elif prof_choice == "4":
+        chosen_prof = Profession.HUNTER
+    elif prof_choice == "5":
+        chosen_prof = Profession.HEALER
+    else:
+        return choose_profession(name)
+
+    response = input(
+        f"You have chosen to play as a {chosen_prof.value}, is this correct?(y/n)"
+    )
+    if response.capitalize() == "Y":
+        return chosen_prof
+    else:
+        return choose_profession(name)
 
 
 def generate_stats(name, player_class, profession):
