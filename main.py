@@ -8,7 +8,6 @@ def main():
     while playing:
         show_start_screen()
         generate_world()
-        player = generate_character()
         playing = False
 
     # exit_game()
