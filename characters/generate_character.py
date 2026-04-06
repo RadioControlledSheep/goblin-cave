@@ -1,8 +1,10 @@
 # import os
+import random
 import shutil
 import textwrap
 import time
 
+from characters.character import Player
 from characters.classes_professions import PlayerClass, Profession
 from game_logic.clearscreen import clearscreen
 
@@ -55,7 +57,7 @@ def choose_class(name):
     for texts in class_text:
         for lines in textwrap.wrap(
             texts, width=terminal_width, replace_whitespace=False
-        ):  #
+        ):
             print(lines)
     print("\n")
     print(
@@ -88,11 +90,32 @@ def choose_profession(name):
     terminal_width = shutil.get_terminal_size().columns
     clearscreen()
     profession_text = []
-    "Scholar - Dusty shelves and musty tomes are your dear companions, sunlight not so much."
-    "Guard - Standing about and looking menacing is a skill okay."
-    "Crafter - General scavenger bit of herbology, general jack of all trades."
-    "Hunter - Silently stalking though the wilderness tracking their prey being it animal or man."
-    "Healer - When people forget that the pointy end goes in the enemy you are around to patch thing up."
+    profession_text.append(f"\n{name}, what best describes your current job?\n")
+    profession_text.append(
+        "\nScholar - Dusty shelves and musty tomes are your dear companions, sunlight not so much.\n"
+    )
+    profession_text.append(
+        "\nGuard - Standing about and looking menacing is a skill okay.\n"
+    )
+    profession_text.append(
+        "\nCrafter - General scavenger bit of herbology, general jack of all trades.\n"
+    )
+    profession_text.append(
+        "\nHunter - Silently stalking though the wilderness tracking their prey being it animal or man.\n"
+    )
+    profession_text.append(
+        "\nHealer - When people forget that the pointy end goes in the enemy you are around to patch thing up.\n"
+    )
+
+    for texts in profession_text:
+        for lines in textwrap.wrap(
+            texts, width=terminal_width, replace_whitespace=False
+        ):
+            print(lines)
+
+    print(
+        "\nPlease choose from 1 - Scholar, 2 - Guard, 3 - Crafter, 4 - Hunter, or 5 = Healer\n"
+    )
 
     prof_choice = input("Enter choice (1-5): ")
     if prof_choice == "1":
@@ -118,4 +141,54 @@ def choose_profession(name):
 
 
 def generate_stats(name, player_class, profession):
-    return "none"
+    strength = 10
+    agility = 10
+    intelligence = 10
+    stamina = 10
+    if player_class == PlayerClass.MAGE:
+        strength += random.randint(1, 3)
+        agility += random.randint(2, 6)
+        intelligence += random.randint(4, 12)
+        stamina += random.randint(1, 3)
+    elif player_class == PlayerClass.WARRIOR:
+        strength += random.randint(4, 12)
+        agility += random.randint(1, 3)
+        intelligence += random.randint(1, 3)
+        stamina += random.randint(2, 6)
+    elif player_class == PlayerClass.ARCHER:
+        strength += random.randint(1, 3)
+        agility += random.randint(4, 12)
+        intelligence += random.randint(1, 3)
+        stamina += random.randint(2, 6)
+    elif player_class == PlayerClass.MONK:
+        strength += random.randint(1, 3)
+        agility += random.randint(1, 3)
+        intelligence += random.randint(4, 12)
+        stamina += random.randint(2, 6)
+    elif player_class == PlayerClass.THIEF:
+        strength += random.randint(1, 3)
+        agility += random.randint(4, 12)
+        intelligence += random.randint(2, 6)
+        stamina += random.randint(1, 3)
+
+    if profession == Profession.SCHOLAR:
+        intelligence += random.randint(2, 6)
+    elif profession == Profession.GUARD:
+        strength += random.randint(1, 3)
+        stamina += random.randint(1, 3)
+    elif profession == Profession.CRAFTER:
+        intelligence += random.randint(1, 3)
+        strength += random.randint(1, 3)
+    elif profession == Profession.HUNTER:
+        intelligence += random.randint(1, 3)
+        stamina += random.randint(1, 3)
+    elif profession == Profession.HEALER:
+        intelligence += random.randint(1, 3)
+        stamina += random.randint(1, 3)
+
+    player = Player(
+        name, strength, agility, intelligence, stamina, player_class, profession
+    )
+    player.show_player()
+    input("Enter")
+    return player

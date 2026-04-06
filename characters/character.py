@@ -1,7 +1,8 @@
 import random
 import time
 
-from classes_professions import PlayerClass, Profession
+from characters.classes_professions import PlayerClass
+from game_logic.clearscreen import clearscreen
 
 
 class Character:
@@ -14,8 +15,10 @@ class Character:
         self.armour = 0
         self.max_health = stamina * 10
         self.current_health = self.max_health
-        self.mana = intelligence * 10
-        self.weapon = "none"
+        self.max_mana = intelligence * 10
+        self.current_mana = self.max_mana
+        self.equipped_weapon = "none"
+        self.equipped_armour = "none"
         self.spells = {}
 
 
@@ -74,3 +77,17 @@ class Player(Character):
         )
         time.sleep(1)
         print("Go forth and slay your enemies.")
+
+    def show_player(self):
+        clearscreen()
+        print(f"Name: {self.name.capitalize()}\n")
+        print(
+            f"Class: {self.player_class.value.capitalize()}\tProfession: {self.profession.value.capitalize()}\n"
+        )
+        print(f"Stength:\t{self.strength}")
+        print(f"Agility:\t{self.agility}")
+        print(f"Intelligence:\t{self.intelligence}")
+        print(f"Stamina:\t{self.stamina}")
+        print(
+            f"\nHealth: {self.current_health}/{self.max_health} \t Mana: {self.current_mana}/{self.max_mana}\n"
+        )
