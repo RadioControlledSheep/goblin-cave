@@ -18,7 +18,7 @@ def show_start_screen():
     print("Repeat...\n")
     time.sleep(2)
     print("or die...")"""
-    time.sleep(2)
+    time.sleep(0.5)
 
 
 def exit_game():

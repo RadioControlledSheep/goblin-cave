@@ -21,8 +21,28 @@ class Armour(Item):
         self.armour_value = armour_value
 
 
-class Armour_location(Enum):
+class ArmourLocation(Enum):
     OFF_HAND = "off_hand"
     BODY = "body"
     FOOTWEAR = "footwear"
     HEAD = "head"
+
+
+class Spell:
+    def __init__(self, name, desciption, mana_cost, damage, damage_type):
+        self.name = name
+        self.description = desciption
+        self.mana_cost = mana_cost
+        self.damage = damage
+        self.damage_type = damage_type
+
+
+class DamageType(Enum):
+    SLASH = "slashing"
+    PIERCE = "piercing"
+    BLUNT = "bludeoning"
+    ARCANE = "arcane"
+    FIRE = "fire"
+    WATER = "water"
+    ACID = "acid"
+    ELECTRIC = "electric"

@@ -17,8 +17,8 @@ class Character:
         self.current_health = self.max_health
         self.max_mana = intelligence * 10
         self.current_mana = self.max_mana
-        self.equipped_weapon = "none"
-        self.equipped_armour = "none"
+        self.equipped_weapon = None
+        self.equipped_armour = None
         self.spells = {}
 
 
@@ -81,13 +81,24 @@ class Player(Character):
     def show_player(self):
         clearscreen()
         print(f"Name: {self.name.capitalize()}\n")
-        print(
-            f"Class: {self.player_class.value.capitalize()}\tProfession: {self.profession.value.capitalize()}\n"
-        )
+        print(f"Class: {self.player_class.value.capitalize()}")
+        print(f"Profession: {self.profession.value.capitalize()}\n")
         print(f"Stength:\t{self.strength}")
         print(f"Agility:\t{self.agility}")
         print(f"Intelligence:\t{self.intelligence}")
-        print(f"Stamina:\t{self.stamina}")
-        print(
-            f"\nHealth: {self.current_health}/{self.max_health} \t Mana: {self.current_mana}/{self.max_mana}\n"
-        )
+        print(f"Stamina:\t{self.stamina}\n")
+        print(f"Health:\t{self.current_health}/{self.max_health}")
+        print(f"Mana:\t{self.current_mana}/{self.max_mana}\n")
+        print("\nEquipment:")
+        print(f"Armour: {self.equipped_armour} Damage Reduction: {self.armour}")
+        if self.equipped_weapon != None:
+            print(
+                f"Weapon: {self.equipped_weapon} Damage: {self.equipped_weapon.damage}"
+            )
+        else:
+            print(f"Weapon: {self.equipped_weapon}")
+        print("\nSpells and Abilities:")
+        for spell in self.spells:
+            print(spell)
+
+        input("Enter to Continue")

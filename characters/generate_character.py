@@ -190,5 +190,4 @@ def generate_stats(name, player_class, profession):
         name, strength, agility, intelligence, stamina, player_class, profession
     )
     player.show_player()
-    input("Enter")
     return player
