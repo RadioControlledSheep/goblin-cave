@@ -19,6 +19,7 @@ class Character:
         self.current_mana = self.max_mana
         self.equipped_weapon = None
         self.equipped_armour = None
+        self.equipped_offhand = None
         self.spells = {}
 
 
@@ -97,6 +98,9 @@ class Player(Character):
             )
         else:
             print(f"Weapon: {self.equipped_weapon}")
+        if self.equipped_offhand != None:
+            print(f"Offhand: {self.equipped_offhand}")
+
         print("\nSpells and Abilities:")
         for spell in self.spells:
             print(spell)
