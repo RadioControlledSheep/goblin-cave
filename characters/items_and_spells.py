@@ -42,24 +42,71 @@ class Weapon(Item):
 
 
 class Armour(Item):
-    def __init__(self, name, description, armour_value, off_hand=False):
+    def __init__(
+        self,
+        name,
+        description,
+        armour_value,
+        weak_against=set({}),
+        strong_against=set({}),
+        off_hand=False,
+    ):
         super().__init__(name, description)
         self.armour_value = armour_value
         self.off_hand = off_hand
+        self.weak = weak_against
+        self.strong = strong_against
 
 
-#   Armours:
-#   Robes 1
-#   Leather 2
-#   Studded Leather 3
-#   Brigadine 4
-#   Chain shirt 5
-#   Chain mail 6
-#   Breastplate 8
-#   Platemail 10
-#   Buckler 1
-#   Kite Shield 3
-#   Tower Shield 5
+def armour_set():
+    robes = Armour(
+        "Cloth Robes",
+        "Looks like a dressing gown, offers about as much protection too",
+        1,
+    )
+    leather = Armour(
+        "Leather", "Cured dead animal skin", 2, set({}), {DamageType.ELECTRIC}
+    )
+    studded_leather = Armour(
+        "Studded Leather",
+        "Cured dead animal skin with metal bits added",
+        3,
+        set({}),
+        {DamageType.ELECTRIC},
+    )
+    chainmail = Armour(
+        "Chainmail",
+        "Interlocking steel rings, worn over a gambeson",
+        5,
+        {DamageType.PIERCE, DamageType.ELECTRIC},
+        {DamageType.SLASH},
+    )
+    cuirass = Armour(
+        "Cuirass",
+        "Beaten metal, protects the torso",
+        7,
+        {DamageType.FIRE, DamageType.ELECTRIC},
+    )
+    buckler = Armour(
+        "Buckler", "A small round shield.", 1, {DamageType.BLUNT}, set({}), True
+    )
+    shield = Armour(
+        "Shield",
+        "A shield made of laminated wood",
+        3,
+        {DamageType.FIRE},
+        {DamageType.BLUNT},
+        True,
+    )
+    armours = set({})
+    armours.add(robes)
+    armours.add(leather)
+    armours.add(studded_leather)
+    armours.add(chainmail)
+    armours.add(cuirass)
+    armours.add(buckler)
+    armours.add(shield)
+    return armours
 
 
 class ArmourLocation(Enum):

@@ -98,6 +98,7 @@ class Player(Character):
             )
         else:
             print(f"Weapon: {self.equipped_weapon}")
+
         if self.equipped_offhand != None:
             print(f"Offhand: {self.equipped_offhand}")
 
