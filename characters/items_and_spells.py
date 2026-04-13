@@ -1,6 +1,14 @@
 from enum import Enum
 
 
+class ItemType(Enum):
+    WEAPON = "weapon"
+    ARMOUR = "armour"
+    POTION = "potion"
+    MISC = "miscellaneous"
+    TRASH = "trash"
+
+
 class Item:
     def __init__(self, name, description):
         self.name = name
@@ -107,13 +115,6 @@ def armour_set():
     armours.add(buckler)
     armours.add(shield)
     return armours
-
-
-class ArmourLocation(Enum):
-    OFF_HAND = "off_hand"
-    BODY = "body"
-    FOOTWEAR = "footwear"
-    HEAD = "head"
 
 
 class Spell:
