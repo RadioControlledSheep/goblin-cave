@@ -1,5 +1,16 @@
 # Generate the world, holding room, monsters, player, current room.
-from characters.generate_character import generate_character
+from objects.generate_character import generate_character
+
+
+class World:
+    def __init__(
+        self, rooms, player, wandering_monsters, turn_counter, current_location
+    ):
+        self.rooms = rooms
+        self.player = player
+        self.wandering_monsters = wandering_monsters
+        self.turn_counter = turn_counter
+        self.current_location = current_location
 
 
 def generate_world():
@@ -13,14 +24,3 @@ def generate_world():
         rooms, player, wandering_monsters=[], turn_counter=1, current_location=1
     )
     return world
-
-
-class World:
-    def __init__(
-        self, rooms, player, wandering_monsters, turn_counter, current_location
-    ):
-        self.rooms = rooms
-        self.player = player
-        self.wandering_monsters = wandering_monsters
-        self.turn_counter = turn_counter
-        self.current_location = current_location

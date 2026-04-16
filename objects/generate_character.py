@@ -4,9 +4,9 @@ import shutil
 import textwrap
 import time
 
-from characters.character import Player
-from characters.classes_professions import PlayerClass, Profession
 from game_logic.clearscreen import clearscreen
+from objects.character import Player
+from objects.classes_professions import PlayerClass, Profession
 
 
 def generate_character():

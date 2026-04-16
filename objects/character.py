@@ -1,8 +1,8 @@
 import random
 import time
 
-from characters.classes_professions import PlayerClass
 from game_logic.clearscreen import clearscreen
+from objects.classes_professions import PlayerClass
 
 
 class Character:

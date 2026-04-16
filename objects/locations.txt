@@ -1,0 +1,30 @@
+LocationIDNumber: 1
+Name: Before the Cave
+
+Description: You stand before a cave deep in a forest, footprints about the size of a childs track in and out of the cave.  A crude barricade obviously made by dragging some nearby vegetation has been placed in front of the entrance impeding progress, although at the moment you can not see any sign of anyone standing guard.
+
+Short Description: You stand outside the caves entrance.
+
+Exits: Leave the forest, Enter Cave
+
+Items: None
+
+Mobs: None
+
+Interactables: Barricade (must move to enter cave)
+
+Bonus options:  Hunter - can see amongst the footprints there are signs of a dog like animal, with intelligence test passed can see they are goblin and warg tracks
+             Gatherer - can try to scavenge some herbs to make a healing salve from the vegetation blocking the entrance (intelligence test)
+             Thief - can try to sneak through baracade without disturbing it so as to avoid alerting possible enemies
+
+=========================================================================================================================
+LocationIDNumber:
+Name:
+Description:
+Short Description:
+Exits:
+Items:
+Mobs:
+Interactables:
+Bonus options:
+=========================================================================================================================

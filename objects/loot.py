@@ -1,6 +1,6 @@
 import random
 
-from characters.items_and_spells import armour_set
+from objects.items_and_spells import armour_set
 
 
 def generate_loot(items, weights, number_of_loots=1):

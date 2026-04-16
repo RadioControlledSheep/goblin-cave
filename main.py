@@ -1,5 +1,5 @@
 from game_logic.game_logic import exit_game, show_start_screen
-from game_logic.world import generate_world
+from objects.world import generate_world
 
 
 def main():
