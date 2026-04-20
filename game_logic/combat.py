@@ -7,12 +7,18 @@
 #       adjust damage for attack type vs resistances/weaknesses
 #       deduct damage from health
 def combat(player, enemies):  # receive list of enemies and player
-    player_initiative = {player.name: roll_initiative(player)}
-    pass
+    initiatives = {player: roll_initiative(player)}
+    for enemy in enemies:
+        initiatives.update({enemy: roll_initiative(enemy)})
+    sorted_initiatives = dict(
+        sorted(initiatives.items(), key=lambda item: item[1], reverse=True)
+    )
+    for character in sorted_initiatives:
+        character.attack()
 
 
 def roll_initiative(character):
-    pass
+    return 1
 
 
 def attack():  # should be in Character class

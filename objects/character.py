@@ -22,6 +22,9 @@ class Character:
         self.equipped_offhand = None
         self.spells = {}
 
+    def attack(self, enemies):
+        pass
+
 
 class Player(Character):
     def __init__(
