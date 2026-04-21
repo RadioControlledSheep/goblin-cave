@@ -14,7 +14,10 @@ def combat(player, enemies):  # receive list of enemies and player
         sorted(initiatives.items(), key=lambda item: item[1], reverse=True)
     )
     for character in sorted_initiatives:
-        character.attack()
+        if character.name is player.name:
+            character.attack(enemies)
+        else:
+            character.attack(player)
 
 
 def roll_initiative(character):

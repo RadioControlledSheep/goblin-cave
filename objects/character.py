@@ -20,10 +20,26 @@ class Character:
         self.equipped_weapon = None
         self.equipped_armour = None
         self.equipped_offhand = None
-        self.spells = {}
+        self.attacks = {}
 
     def attack(self, enemies):
-        pass
+        attack_number = 0
+        print("Select attack:")
+        for attack in self.attacks:
+            attack_number += 1
+            print(f"{attack_number}. {attack}")
+        attack_choice = input(": ")  # THIS IS WRONG BUT TIRED
+        if int(attack_choice) > len(self.attacks) or int(attack_choice) < 1:
+            return self.attack(enemies)
+
+        print("Select target:")
+        target_number = 0
+        for enemy in enemies:
+            target_number += 1
+            print(f"{target_number}. {enemy.name}")
+        target_choice = input(": ")
+        if int(target_choice) > len(enemies) or int(target_choice) < 1:
+            return self.attack(enemies)
 
 
 class Player(Character):
