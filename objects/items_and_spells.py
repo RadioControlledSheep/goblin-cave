@@ -1,10 +1,11 @@
+import random
 from enum import Enum
 
 
 class ItemType(Enum):
     WEAPON = "weapon"
     ARMOUR = "armour"
-    POTION = "potion"
+    CONSUMABLE = "consumable"
     MISC = "miscellaneous"
     TRASH = "trash"
 
@@ -13,6 +14,24 @@ class Item:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
+
+class Consumable(Item):
+    def __init__(self, name, description, stat, modifier):
+        super().__init__(name, description)
+        self.ability = stat
+        self.modifier = modifier
+
+
+def consumables():
+    consumables = set({})
+    mana_potion = Consumable(
+        "Mana Potion",
+        "A swirling potion",
+        "mana",
+        random.randint(11, 18) + random.randint(11, 18),
+    )
+    consumables.add(mana_potion)
 
 
 #   Items:
