@@ -27,17 +27,28 @@ def consumables():
     consumables = set({})
     mana_potion = Consumable(
         "Mana Potion",
-        "A swirling potion",
+        "A swirling potion, restores up to 2d8+20 mana",
         "mana",
-        random.randint(11, 18) + random.randint(11, 18),
+        random.randint(1, 8) + random.randint(1, 8) + 20,
     )
     consumables.add(mana_potion)
+    healing_potion = Consumable(
+        "Healing Potion",
+        "A viscous red potion, restores up to 2d8+20 health",
+        "health",
+        random.randint(1, 8) + random.randint(1, 8) + 20,
+    )
+    consumables.add(healing_potion)
+    bandage = Consumable(
+        "Bandages",
+        "Some simple bandages, restores up to 2d8+10 health",
+        "health",
+        random.randint(1, 8) + random.randint(1, 8) + 10,
+    )
+    consumables.add(bandage)
 
 
 #   Items:
-#   Recovery Potion
-#   Healing Potion
-#   Bandage
 #   Caltrops
 #   Rope
 #   Grapple
