@@ -27,25 +27,26 @@ def consumables():
     consumables = set({})
     mana_potion = Consumable(
         "Mana Potion",
-        "A swirling potion, restores up to 2d8+20 mana",
+        --"A swirling potion, restores up to 2d8+20 mana",
         "mana",
-        random.randint(1, 8) + random.randint(1, 8) + 20,
+        "2d8+20",
     )
     consumables.add(mana_potion)
     healing_potion = Consumable(
         "Healing Potion",
         "A viscous red potion, restores up to 2d8+20 health",
         "health",
-        random.randint(1, 8) + random.randint(1, 8) + 20,
+        "2d8+20",
     )
     consumables.add(healing_potion)
     bandage = Consumable(
         "Bandages",
         "Some simple bandages, restores up to 2d8+10 health",
         "health",
-        random.randint(1, 8) + random.randint(1, 8) + 10,
+        "2d8+10",
     )
     consumables.add(bandage)
+    return consumables
 
 
 #   Items:
@@ -63,20 +64,28 @@ class Weapon(Item):
         self.two_handed = two_handed
 
 
+def weapons():
+    weapons = set({})
+    dagger = Weapon(
+        "Dagger", "A simple dagger", "1d4", DamageType.PIERCE, two_handed=False
+    )
+    weapons.add(dagger)
+
+
 #   Weapons:
-#   Dagger P
-#   Short Sword P
-#   Rapier P
-#   Staff B
-#   Mace B
-#   Morningstar B
-#   Longsword S
-#   Hand Axe S
-#   Battle Axe S
-#   2 Handed Sword S
-#   Short bow P
-#   Long bow P
-#   Crossbow P
+#   Dagger P 1d4
+#   Short Sword P 1d6
+#   Rapier P 1d6
+#   Staff B 1d6
+#   Mace B 2d4
+#   Morningstar B 1d8
+#   Longsword S 1d8
+#   Hand Axe S 1d6
+#   Battle Axe S 1d8
+#   2 Handed Sword S 1d12
+#   Short bow P 1d6
+#   Long bow P 1d8
+#   Crossbow P 1d10
 
 
 class Armour(Item):
