@@ -70,6 +70,18 @@ def weapons():
         "Dagger", "A simple dagger", "1d4", DamageType.PIERCE, two_handed=False
     )
     weapons.add(dagger)
+    short_sword = Weapon(
+        "Short Sword",
+        "A short one handed weapon",
+        "1d6",
+        DamageType.PIERCE,
+        two_handed=False,
+    )
+    weapons.add(short_sword)
+    rapier = Weapon(
+        "Rapier", "A narrow piercing sword", "1d6", DamageType.PIERCE, two_handed=False
+    )
+    weapons.add(rapier)
 
 
 #   Weapons:
