@@ -72,14 +72,18 @@ def weapons():
     weapons.add(dagger)
     short_sword = Weapon(
         "Short Sword",
-        "A short one handed weapon",
+        "A compact, one-handed melee weapon",
         "1d6",
         DamageType.PIERCE,
         two_handed=False,
     )
     weapons.add(short_sword)
     rapier = Weapon(
-        "Rapier", "A narrow piercing sword", "1d6", DamageType.PIERCE, two_handed=False
+        "Rapier",
+        "A slender, one-handed thrusting sword",
+        "1d6",
+        DamageType.PIERCE,
+        two_handed=False,
     )
     weapons.add(rapier)
 
