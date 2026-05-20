@@ -86,6 +86,38 @@ def weapons():
         two_handed=False,
     )
     weapons.add(rapier)
+    staff = Weapon(
+        "Quaterstaff",
+        "A simple wooden staff",
+        "1d6",
+        DamageType.BLUNT,
+        two_handed=True,
+    )
+    weapons.add(staff)
+    mace = Weapon(
+        "Mace",
+        "A simple blunt weapon of war",
+        "2d4",
+        DamageType.BLUNT,
+        two_handed=False,
+    )
+    wepaons.add(mace)
+    morningstar = Weapon(
+        "Morningstar",
+        "A splike ball on a chain",
+        "1d8",
+        DamageType.BLUNT,
+        two_handed=False,
+    )
+    weapons.add(morningstar)
+    longsword = Weapon(
+        "Longsword",
+        "A knights best friend",
+        "1d8",
+        DamageType.SLASH,
+        two_handed=False,
+    )
+    weapons.add(longsword)
 
 
 #   Weapons:
